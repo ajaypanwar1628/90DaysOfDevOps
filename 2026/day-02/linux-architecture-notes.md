@@ -1,4 +1,4 @@
-# Day 02 – Linux Architecture & systemd (Live Class Notes)
+# Day 02 – Linux Architecture & systemd Notes
 
 ## What we discussed in today’s live session
 - Linux is the base OS for most DevOps and cloud servers
