@@ -3,19 +3,20 @@
 ## Target Service
 ssh (OpenSSH Daemon)
 
-This runbook documents a basic Linux troubleshooting drill performed on an AWS EC2 Ubuntu instance.
-The focus is on checking system health and verifying SSH service stability.
+This runbook captures a basic Linux troubleshooting drill performed on an
+AWS EC2 Ubuntu instance. The goal is to verify system health and ensure
+the SSH service is running normally.
 
 ---
 
 ## Environment Check
 
-Command:
+Commands:
 uname -a  
 cat /etc/os-release
 
 Observation:
-Verified kernel version and Ubuntu OS details of the instance.
+Verified kernel version, architecture, and Ubuntu OS details.
 
 Screenshot:
 ![Environment](screenshots/Day%2005%20env.png)
@@ -24,9 +25,10 @@ Screenshot:
 
 ## Filesystem Sanity Check
 
-Command:
+Commands:
 mkdir /tmp/linux-ajay-check  
-cp /etc/hosts /tmp/linux-ajay-check/hosts-copy && ls -l /tmp/linux-ajay-check
+cp /etc/hosts /tmp/linux-ajay-check/hosts-copy  
+ls -l /tmp/linux-ajay-check
 
 Observation:
 Filesystem is writable and basic file operations are working correctly.
@@ -42,19 +44,22 @@ Command:
 ps aux | grep sshd
 
 Observation:
-SSH daemon process is running and consuming minimal CPU and memory.
+Verified SSH daemon process is running and checked its CPU usage.
 
-Screenshot:
-![SSH CPU Memory](screenshots/Day%2005%20sshstatus_cpu-memory.png)
+Command:
+free -h
+
+Observation:
+Memory usage is within normal limits and no memory pressure observed.
 
 Command:
 top
 
 Observation:
-System load is stable with no abnormal CPU usage observed.
+System load is stable and SSH process is not consuming abnormal CPU or memory.
 
 Screenshot:
-![Top](screenshots/Day%2005%20topsshd.png)
+![CPU Memory](screenshots/Day%2005%20sshstatus_cpu-memory.png)
 
 ---
 
@@ -64,7 +69,10 @@ Command:
 sudo du -sh /var/log
 
 Observation:
-Log directory size is under control and no disk pressure observed.
+Log directory size is under control and not causing disk pressure.
+
+![size of log file](screenshots/Day%2005%20diskusage.png)
+
 
 ---
 
@@ -74,7 +82,7 @@ Command:
 journalctl -u ssh -n 50 --no-pager
 
 Observation:
-Reviewed recent SSH logs and found no critical errors.
+Reviewed recent SSH logs and found no critical or repeated errors.
 
 Screenshot:
 ![SSH Logs](screenshots/Day%2005%20ssh-logs.png)
@@ -83,12 +91,13 @@ Screenshot:
 
 ## Quick Findings
 - SSH service is running normally
-- CPU, memory, and disk usage are within safe limits
-- No error patterns found in SSH logs
+- CPU and memory usage are stable
+- Disk usage is within safe limits
+- No critical issues found in SSH logs
 
 ---
 
 ## If This Worsens (Next Steps)
 - Restart SSH service and monitor logs
-- Check authentication failures and brute-force attempts
-- Verify network security group and firewall rules
+- Investigate authentication failures or suspicious access attempts
+- Verify security group and firewall rules
