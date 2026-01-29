@@ -1,0 +1,5 @@
+This is my Day 06 of Linux practice.
+Learning file read and write commands.
+
+
+These commands are useful for logs and configs.
