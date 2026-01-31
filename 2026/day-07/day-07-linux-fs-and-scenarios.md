@@ -91,8 +91,10 @@ and solving service, CPU, log, and permission-related issues step by step.
 
 
 du -sh /var/log/* 2>/dev/null | sort -h | tail -5
-cat /etc/hostname
-ls -la -a
+
+`cat /etc/hostname` 
+
+`ls -la -a` 
 
 📸 Screenshot:
 ![/ directory & files](screenshots/Day%2007%20directory%20commands.jpg)
@@ -104,8 +106,8 @@ ls -la -a
 
 
 # Part 2: Scenario-Based Practice
-
-##Scenario 1: Service Not Starting (cron)
+---
+# Scenario 1: Service Not Starting (cron)
 
 #Step 1: Check service status
 systemctl status cron
@@ -214,7 +216,6 @@ ls -l backup.sh
 
 
 #Screenshots
-
 - All screenshots are stored in the screenshots/ folder with proper naming.
 
 
