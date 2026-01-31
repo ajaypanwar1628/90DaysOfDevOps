@@ -90,121 +90,125 @@ and solving service, CPU, log, and permission-related issues step by step.
 ## Hands-on Commands
 
 
-du -sh /var/log/* 2>/dev/null | sort -h | tail -5
-
+`du -sh /var/log/* 2>/dev/null | sort -h | tail -5` 
 `cat /etc/hostname` 
-
 `ls -la -a` 
 
 📸 Screenshot:
 ![/ directory & files](screenshots/Day%2007%20directory%20commands.jpg)
 
 ---
-
-
+---
+---
 
 
 
 # Part 2: Scenario-Based Practice
 ---
-# Scenario 1: Service Not Starting (cron)
+## Scenario 1: Service Not Starting (cron)
 
-#Step 1: Check service status
-systemctl status cron
+### Step 1: Check service status
+`systemctl status cron`
 
 
-#Why: To see whether the service is active, inactive, or failed.
+### Why: To see whether the service is active, inactive, or failed.
 
 📸 Screenshot:
 ![cron status](screenshots/Day%2007%20TWS2%20cron%20status%20active.jpg)
 
-#Step 2: Stop the service manually
-systemctl stop cron
+### Step 2: Stop the service manually
+`systemctl stop cron`
 
 
-#Why: To simulate a failure scenario.
+### Why: To simulate a failure scenario.
 
 📸 Screenshot:
 ![cron stopped](screenshots/Day%2007%20manually%20stopped%20&%20check%20status%20of%20cron.jpg)
 
-#Step 3: Check logs for cron
-journalctl -u cron -n 30
+### Step 3: Check logs for cron
+`journalctl -u cron -n 30`
 
 
-#Why: To identify why the service stopped or restarted.
+### Why: To identify why the service stopped or restarted.
 
 📸 Screenshot:
 ![cron logs](screenshots/Day%2007%20Journalctl%20logs%20n30%20for%20cron.jpg)
 
-#Step 4: Find where logs are coming from
+### Step 4: Find where logs are coming from
 'journalctl -u cron'
 
 
-#Why: To confirm that cron logs are managed by systemd (journald).
+### Why: To confirm that cron logs are managed by systemd (journald).
 
 📸 Screenshot:
 ![finding cron logs](screenshots/Day%2007%20Finding%20Logs%20for%20cron.jpg)
 
-#What I Learned
+### What I Learned
 
 - Always check service status first.
 - Logs explain why a service failed.
 - systemd services store logs in journald.
 
 
-
-##Scenario 2: High CPU Usage
-
-#Step 1: Live CPU monitoring
-top
+---
 
 
-#Why: To identify processes consuming high CPU in real time.
+## Scenario 2: High CPU Usage
 
-#Step 2: Sort processes by CPU usage
-ps aux --sort=-%cpu | head -10
+### Step 1: Live CPU monitoring
+`top`
 
 
-#Why: To quickly identify top CPU-consuming processes.
+### Why: To identify processes consuming high CPU in real time.
+
+### Step 2: Sort processes by CPU usage
+`ps aux --sort=-%cpu | head -10`
+
+
+### Why: To quickly identify top CPU-consuming processes.
 
 📸 Screenshot:
 ![CPU usage](screenshots/Day%2007%20CPU%20Usage%20with%20top%20&%20ps%20aux%20command.jpg)
 
-#What I Learned
+### What I Learned
 
 - "top" is useful for live monitoring. ps aux helps in quick analysis during incidents. 
 
+---
 
-##Scenario 3: File Permission Issue 
+## Scenario 3: File Permission Issue 
 
-#Step 1: Create a script 
-touch backup.sh ls -l backup.sh
+### Step 1: Create a script 
+`touch backup.sh ls -l backup.sh`
 
-#Observation: Script was not executable.
+### Observation: Script was not executable.
 
+---
 
-#Step 2: Fix permissions
-chmod +x backup.sh
-ls -l backup.sh
+### Step 2: Fix permissions
+`chmod +x backup.sh`
+`ls -l backup.sh`
 
 
 📸 Screenshot:
 ![permissions fix](screenshots/Day%2007%20file%20before%20&%20after%20permissions.jpg)
 
-#What I Learned
+
+
+### What I Learned
 
 - Scripts require execute permission (x).
 - ls -l -a clearly shows permission issues.
 
+---
 
-
-##Why This Matters for DevOps
+### Why This Matters for DevOps
 
 - Logs help debug production issues. 
 - Service status checks are the first step in troubleshooting. 
 - Permission issues are common deployment problems.
  
-
+---
 
 ## Summary of Learnings
 
@@ -214,16 +218,17 @@ ls -l backup.sh
 - CPU troubleshooting
 - File permission fixes
 
+---
 
-#Screenshots
+## Screenshots
 - All screenshots are stored in the screenshots/ folder with proper naming.
 
+---
 
-
-#Status
+## Status
 - Day 07 completed successfully ✔️
 
-
+---
 
 
 
