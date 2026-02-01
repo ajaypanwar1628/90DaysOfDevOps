@@ -1,8 +1,8 @@
-\# Day 08 – AWS EC2, Bastion Host, Docker \& Nginx Hands-On Practice
+# Day 08 – AWS EC2, Bastion Host, Docker & Nginx Hands-On Practice
 
 
 
-\## Overview
+## Overview
 
 Today’s practice focused on real-world Linux and AWS scenarios involving secure access, containerization, and web service deployment.  
 
@@ -14,19 +14,19 @@ I worked on multiple EC2 instances across regions and implemented a jump server 
 
 
 
-\## Environment Details
+## Environment Details
 
-\- \*\*Cloud Provider:\*\* AWS
+- **Cloud Provider:** AWS
 
-\- \*\*EC2 Instances:\*\*
+- **EC2 Instances:**
 
 &nbsp; - `tws1` – Mumbai (ap-south-1)
 
 &nbsp; - `tws2` – Oregon (us-west-2)
 
-\- \*\*OS:\*\* Ubuntu Linux
+- **OS:** Ubuntu Linux
 
-\- \*\*Instance Type:\*\* t2.micro
+- **Instance Type:** t2.micro
 
 
 
@@ -34,23 +34,23 @@ I worked on multiple EC2 instances across regions and implemented a jump server 
 
 
 
-\## Task 1: Bastion Host (Jump Server) Setup
+## Task 1: Bastion Host (Jump Server) Setup
 
 
 
-\### What I Did
+### What I Did
 
-\- Created \*\*two EC2 instances in different AWS regions\*\*
+- Created **two EC2 instances in different AWS regions**
 
-\- Configured `tws1` as a \*\*Bastion / Jump Server\*\*
+- Configured `tws1` as a **Bastion / Jump Server**
 
-\- Generated SSH key pair manually using `ssh-keygen`
+- Generated SSH key pair manually using `ssh-keygen`
 
-\- Copied \*\*public key\*\* to `tws2` under:
+- Copied **public key** to `tws2` under:
 
 &nbsp; ```bash
 
-&nbsp; ~/.ssh/authorized\_keys
+&nbsp; ~/.ssh/authorized_keys
 
 
 
@@ -58,7 +58,7 @@ I worked on multiple EC2 instances across regions and implemented a jump server 
 
 
 
-\### Key Commands Used
+### Key Commands Used
 
 ssh-keygen
 
@@ -70,7 +70,7 @@ ssh ubuntu@tws2-private-ip
 
 
 
-\### Observation
+### Observation
 
 
 
@@ -81,9 +81,9 @@ ssh ubuntu@tws2-private-ip
 ---
 
 
-\## Task 2: Docker Installation \& Nginx Container (tws2)
+## Task 2: Docker Installation & Nginx Container (tws2)
 
-\### What I Did
+### What I Did
 
 
 
@@ -97,7 +97,7 @@ ssh ubuntu@tws2-private-ip
 
 
 
-\### Commands Used
+### Commands Used
 
 sudo apt-get update
 
@@ -119,7 +119,7 @@ docker ps
 
 
 
-\## Observation
+## Observation
 
 
 
@@ -130,10 +130,10 @@ docker ps
 ---
 
 
-\## Task 3: Nginx Installation on Host (tws1)
+## Task 3: Nginx Installation on Host (tws1)
 
 
-\#### What I Did
+#### What I Did
 
 
 
@@ -147,7 +147,7 @@ docker ps
 
 
 
-\## Commands Used
+## Commands Used
 
 sudo apt-get install nginx -y
 
@@ -165,20 +165,20 @@ journalctl -u nginx -n 20
 
 
 
-\## Observation
+## Observation
 
 
 
 * Even if service is running, network rules can block access
 * Security Groups are a common real-world issue during deployments
-* Logs \& File Handling
+* Logs & File Handling
 * Created log files using redirection
 
 
 ---
 
 
-\### Copied logs from EC2 to local system using scp
+### Copied logs from EC2 to local system using scp
 
 
 
@@ -192,7 +192,7 @@ journalctl -u nginx -n 20
 
 
 
-\## What I Learned Today
+## What I Learned Today
 
 
 
@@ -209,7 +209,7 @@ journalctl -u nginx -n 20
 
 
 
-\## What I Observed
+## What I Observed
 
 
 
@@ -222,7 +222,7 @@ journalctl -u nginx -n 20
 
 
 
-\## Conclusion
+## Conclusion
 
 
 
