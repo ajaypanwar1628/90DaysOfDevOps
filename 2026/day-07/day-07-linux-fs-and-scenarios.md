@@ -6,7 +6,7 @@ practice real-world troubleshooting scenarios like a DevOps engineer.
 This included identifying where configuration files, logs, binaries live,
 and solving service, CPU, log, and permission-related issues step by step.
 
----
+--
 
 ## Environment
 - OS: Ubuntu Linux (AWS EC2)
@@ -14,7 +14,7 @@ and solving service, CPU, log, and permission-related issues step by step.
 - Service used for practice: cron
 - Working Directory: 90DaysOfDevOps/2026/day-07
 
----
+--
 
 ## Part 1: Linux File System Hierarchy
 
@@ -23,56 +23,56 @@ and solving service, CPU, log, and permission-related issues step by step.
 - Example folders seen: `bin`, `etc`, `home`, `var`
 - I would use this when understanding overall system structure.
 
----
+--
 
 ### `/home`
 - Contains home directories for normal users.
 - Example folder: `/home/ubuntu`
 - I would use this when managing user files and scripts.
 
----
+--
 
 ### `/root`
 - Home directory for the root user.
 - Used mainly for administrative tasks.
 - I would use this when logged in as root for system-level operations.
 
----
+--
 
 ### `/etc`
 - Contains system-wide configuration files.
 - Example file: `/etc/hostname`
 - I would use this when changing service or system configuration.
 
----
+--
 
 ### `/var/log`
 - Stores system and application log files.
 - Example logs: `syslog`, `auth.log`
 - I would use this when troubleshooting services and errors.
 
----
+--
 
 ### `/tmp`
 - Stores temporary files.
 - Files here can be deleted automatically.
 - I would use this for temporary scripts or downloads.
 
----
+--
 
 ### `/bin`
 - Essential system binaries like `ls`, `cp`, `mv`
 - Needed for basic command execution.
 - I would use this during system recovery or minimal environments.
 
----
+--
 
 ### `/usr/bin`
 - User-level binaries.
 - Example commands: `vim`, `top`, `journalctl`
 - I would use this for daily Linux operations.
 
----
+--
 
 ### `/opt`
 - Optional or third-party applications.
@@ -85,7 +85,7 @@ and solving service, CPU, log, and permission-related issues step by step.
 
 
 
----
+--
 
 ## Hands-on Commands
 
@@ -97,14 +97,14 @@ and solving service, CPU, log, and permission-related issues step by step.
 📸 Screenshot:
 ![/ directory & files](screenshots/Day%2007%20directory%20commands.jpg)
 
----
----
----
+--
+--
+--
 
 
 
 # Part 2: Scenario-Based Practice
----
+--
 ## Scenario 1: Service Not Starting (cron)
 
 ### Step 1: Check service status
@@ -150,7 +150,7 @@ and solving service, CPU, log, and permission-related issues step by step.
 - systemd services store logs in journald.
 
 
----
+--
 
 
 ## Scenario 2: High CPU Usage
@@ -174,7 +174,7 @@ and solving service, CPU, log, and permission-related issues step by step.
 
 - "top" is useful for live monitoring. ps aux helps in quick analysis during incidents. 
 
----
+--
 
 ## Scenario 3: File Permission Issue 
 
@@ -183,7 +183,7 @@ and solving service, CPU, log, and permission-related issues step by step.
 
 ### Observation: Script was not executable.
 
----
+--
 
 ### Step 2: Fix permissions
 `chmod +x backup.sh`
@@ -200,7 +200,7 @@ and solving service, CPU, log, and permission-related issues step by step.
 - Scripts require execute permission (x).
 - ls -l -a clearly shows permission issues.
 
----
+--
 
 ### Why This Matters for DevOps
 
@@ -208,7 +208,7 @@ and solving service, CPU, log, and permission-related issues step by step.
 - Service status checks are the first step in troubleshooting. 
 - Permission issues are common deployment problems.
  
----
+--
 
 ## Summary of Learnings
 
@@ -218,17 +218,17 @@ and solving service, CPU, log, and permission-related issues step by step.
 - CPU troubleshooting
 - File permission fixes
 
----
+--
 
 ## Screenshots
 - All screenshots are stored in the screenshots/ folder with proper naming.
 
----
+--
 
 ## Status
 - Day 07 completed successfully ✔️
 
----
+--
 
 
 
