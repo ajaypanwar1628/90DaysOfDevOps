@@ -25,11 +25,11 @@
 
 - install_packages.sh
 
-![Day17_for_loop_fruit_sh](screenshots/Day17_for_loop_fruit_sh.jpg)
+![Day17_install_packages_sh](screenshots/Day17_install_packages_sh.jpg)
 
 - safe_script.sh
 
-![Day17_install_packages_sh](screenshots/Day17_install_packages_sh.jpg)
+![Day17_safe_script_sh](screenshots/Day17_safe_script_sh.jpg)
 
 --- 
 ## Key Learnings
